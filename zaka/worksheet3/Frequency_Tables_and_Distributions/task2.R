@@ -42,15 +42,11 @@ prop_equal_696 <- sum(times == 696) / length(times)
 breaks1 <- seq(500, 1100, by = 100)
 
 # Grouped frequency distribution
-grouped_freq1 <- cut(times, breaks = breaks1, right = TRUE)
+grouped_freq1 <- cut(times, breaks = breaks1)
 grouped_freq_table1 <- table(grouped_freq1)
 
 # Plot histogram for the grouped data
-ggplot(data = data.frame(times), aes(x = times)) +
-  geom_histogram(breaks = breaks1, color = "black", fill = "lightblue") +
-  labs(title = "Grouped Frequency Distribution (Equal Widths)",
-       x = "Time (ms)", y = "Frequency") +
-  theme_minimal()
+hist(times, breaks1, main = "Grouped Frequency Distribution (Equal Widths)", xlab = "Times (ms)", ylab = "Frequency")
 
 # Define new classes with unequal width
 breaks2 <- c(500, 600, 900, 1000, 1200)
@@ -60,9 +56,5 @@ grouped_freq2 <- cut(times, breaks = breaks2, right = TRUE)
 grouped_freq_table2 <- table(grouped_freq2)
 
 # Plot histogram for the grouped data with unequal width classes
-ggplot(data = data.frame(times), aes(x = times)) +
-  geom_histogram(breaks = breaks2, color = "black", fill = "lightgreen") +
-  labs(title = "Grouped Frequency Distribution (Unequal Widths)",
-       x = "Time (ms)", y = "Frequency") +
-  theme_minimal()
+hist(times, breaks2, main = "Grouped Frequency Distribution (Unequal Widths)", xlab = "Times (ms)", ylab = "Frequency", yaxt = "n")
 

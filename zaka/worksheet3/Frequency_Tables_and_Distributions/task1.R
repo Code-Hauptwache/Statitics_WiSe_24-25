@@ -4,8 +4,9 @@ party <- c("CDU", "SPD", "AfD", "FDP", "DIE LINKE", "GRUENE", "CSU", "Others")
 results_2013 <- c(26.8, 20.5, 12.6, 10.7, 9.2, 8.9, 6.2, 5.0)
 results_2017 <- c(34.1, 25.7, 4.7, 4.8, 8.6, 8.4, 7.4, 6.2)
 
-# Pie chart for 2017 results
-pie(results_2017, labels = party, main = "2017 German National Election Results (%)")
+# Pie and Bar chart for 2017 results
+pie(results_2017, labels = paste(party, results_2017, "%"), main = "2017 German National Election Results")
+barplot(results_2017, names.arg = party, main = "2017 German National Election Results (%)")
 
 library(ggplot2)
 
