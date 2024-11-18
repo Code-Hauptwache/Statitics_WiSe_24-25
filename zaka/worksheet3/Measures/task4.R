@@ -1,25 +1,23 @@
 # Task 4
-# Define the data
-data <- c(4, 3, 2, 4, 10)
+# Data input
+number <- c(1, 2, 3, 4, 5, 6, 7, 8)
+frequency <- c(5, 4, 1, 7, 2, 3, 1, 2)
 
-# (a) Mean
-mean_value <- mean(data)
-cat("(a) Mean:", mean_value, "\n")
+# Create the full dataset
+data <- rep(number, frequency)
 
-# (b) Median
-median_value <- median(data)
-cat("(b) Median:", median_value, "\n")
+# Arithmetic mean
+arithmetic_mean <- mean(data)
+print(paste("Arithmetic Mean:", arithmetic_mean))
 
-# (c) Mode
-# Mode function to find the most frequently occurring value
-mode_value <- as.numeric(names(sort(table(data), decreasing = TRUE)[1]))
-cat("(c) Mode:", mode_value, "\n")
+# Geometric mean
+geometric_mean <- exp(mean(log(data)))
+print(paste("Geometric Mean:", geometric_mean))
 
-# (d) 20%-quantile
-quantile_20 <- quantile(data, 0.20)
-cat("(d) 20%-quantile:", quantile_20, "\n")
+# Harmonic mean
+harmonic_mean <- length(data) / sum(1 / data)
+print(paste("Harmonic Mean:", harmonic_mean))
 
-# (e) Trimmed 40% mean
-# Trim 20% from each end (40% total trimmed)
-trimmed_mean_40 <- mean(data, trim = 0.20)
-cat("(e) Trimmed 40% Mean:", trimmed_mean_40, "\n")
+# Trimmed mean (20%)
+trimmed_mean <- mean(data, trim = 0.2)
+print(paste("Trimmed 20% Mean:", trimmed_mean))
