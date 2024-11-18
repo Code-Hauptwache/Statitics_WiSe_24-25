@@ -31,13 +31,11 @@ group_data <- data.frame(
   Group = factor(rep(c("Non-Player", "Beginner", "Tournament"), each = 10))
 )
 
-# Load ggplot2 for plotting
-library(ggplot2)
+# Create a simple base R boxplot
+boxplot(Score ~ Group, 
+        data = group_data, 
+        main = "Performance Comparison of Chess Memory by Group", 
+        xlab = "Group", 
+        ylab = "Number of Pieces Remembered")
 
-# Create side-by-side box plots
-ggplot(group_data, aes(x = Group, y = Score)) +
-  geom_boxplot() +
-  labs(title = "Performance Comparison of Chess Memory by Group",
-       x = "Group",
-       y = "Number of Pieces Remembered") +
-  theme_minimal()
+
